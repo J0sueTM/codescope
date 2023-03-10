@@ -1,41 +1,41 @@
 import React, { useState } from "react"
-import { BrowserRouter } from "react-router-dom"
 
-import Dropdown from "./components/Dropdown"
-import { IconType } from "react-icons/lib"
-import { IconBase } from "react-icons"
+import Header from "./components/Header"
+import Modules, { Module } from "./dto/module"
+import { Topic, Topics } from "./dto/topic"
 
-export type SectionURI = 'ds' | 'algo' | 'games'
+export interface Unit {
+  topic: Topic
+  module: Module
+}
 
-export interface Section {
-  name: string
-  uri: SectionURI
-  icon: IconType
+export interface IUnitContext {
+  unit: Unit
+  setUnit: React.Dispatch<React.SetStateAction<Unit>>
 }
  
-export const SectionContext = React.createContext<[Section | null, React.Dispatch<React.SetStateAction<Section>> | null]>([null, null])
+export var UnitContext: React.Context<IUnitContext>
 
 function App() {
-  const [sectionContext, setSectionContext] = useState<Section>({name: 'Data Structures', uri: 'ds', icon: IconBase})
+  let [ unit, setUnit] = useState<Unit>({
+    topic: Topics[0],
+    module: Modules[0]
+  } as Unit)
+
+  UnitContext = React.createContext<IUnitContext>({ unit: unit, setUnit: setUnit })
 
   return (
-    <div className="w-full h-full">
-      <header className="w-full h-12 pt-4 flex flex-row justify-center items-center">
-        <SectionContext.Provider value={[sectionContext, setSectionContext]}>
-          <Dropdown
-            style={{
-              width: 'max',
-              height: 5,
-              button: {
-                hoverable: true,
-                textWeight: 'bold',
-                textSize: 'md'
-              }
-            }}
-          />
-        </SectionContext.Provider>
-      </header>
-    </div>
+    <div className="w-screen h-screen">
+      <UnitContext.Provider value={{ unit, setUnit }}>
+        <Header/>
+      </UnitContext.Provider>
+      <div className="w-full">
+        <unit.module.component/>
+      </div>
+      <p className="fixed w-screen bottom-2 items-center text-center text-light text-xs">
+        Copyright GPL3.0<br/>Created by <a className="underline" href="https://j0suetm.com">Josué Teodoro Moreira</a>.
+      </p>
+   </div>
   );
 }
 
