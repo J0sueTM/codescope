@@ -18,7 +18,7 @@ function Navbar(props: Props) {
   } as Unit)
 
   return (
-    <div className={`w-full h-full ${props.isClosed ? 'hidden' : 'fixed z-10'} p-4 pt-0 flex flex-col space-y-4 bg-light
+    <div className={`w-full h-full ${props.isClosed ? 'hidden' : 'fixed z-20'} p-4 pt-0 flex flex-col space-y-4 bg-light
                      sm:w-1/2
                      lg:w-1/3
                      xl:w-1/4`}>

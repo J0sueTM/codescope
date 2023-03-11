@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <>
-      <header className={`w-full p-4 flex flex-row justify-between items-center ${isNavClosed ? 'bg-dark' : 'bg-light'}
+      <header className={`relative w-full p-4 flex flex-row justify-between items-center ${isNavClosed ? 'bg-dark' : 'bg-light'} z-20
                           sm:w-1/2 sm:flex-row-reverse ${isNavClosed ? 'sm:justify-end' : 'sm:justify-between'}
                           lg:w-1/3
                           xl:w-1/4`}>

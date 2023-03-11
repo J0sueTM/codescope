@@ -29,7 +29,7 @@ function App() {
       <UnitContext.Provider value={{ unit, setUnit }}>
         <Header/>
       </UnitContext.Provider>
-      <div className="w-full">
+      <div className="fixed left-0 top-0 w-screen h-screen z-10">
         <unit.module.component/>
       </div>
       <p className="fixed w-screen bottom-2 items-center text-center text-light text-xs">
