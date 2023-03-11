@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/codescope/static/css/main.7a4527c7.css",
+    "main.js": "/codescope/static/js/main.8f8b16d7.js",
+    "index.html": "/codescope/index.html",
+    "main.7a4527c7.css.map": "/codescope/static/css/main.7a4527c7.css.map",
+    "main.8f8b16d7.js.map": "/codescope/static/js/main.8f8b16d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7a4527c7.css",
+    "static/js/main.8f8b16d7.js"
+  ]
+}
